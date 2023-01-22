@@ -1,0 +1,1 @@
+alter table medicos add rua varchar(100);
