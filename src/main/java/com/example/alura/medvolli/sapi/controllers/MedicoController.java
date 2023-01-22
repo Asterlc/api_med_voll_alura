@@ -4,6 +4,7 @@ import com.example.alura.medvolli.sapi.medico.Medico;
 import com.example.alura.medvolli.sapi.medico.MedicoDTO;
 import com.example.alura.medvolli.sapi.medico.MedicoRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class MedicoController {
     private MedicoRepository repository;
 
     @PostMapping
-    public void cadastrar(@RequestBody MedicoDTO data) {
+    public void cadastrar(@RequestBody @Valid MedicoDTO data) {
         repository.save(new Medico(data));
     }
 }

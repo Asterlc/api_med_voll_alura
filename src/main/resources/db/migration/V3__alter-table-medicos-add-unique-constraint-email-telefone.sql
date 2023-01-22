@@ -1,0 +1,1 @@
+alter table medicos add constraint UQ_email_telefone UNIQUE(nome, telefone);
