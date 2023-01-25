@@ -1,0 +1,1 @@
+alter table pacientes add constraint UQ_telefone UNIQUE(telefone);

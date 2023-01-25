@@ -1,0 +1,1 @@
+alter table pacientes add rua varchar(100);

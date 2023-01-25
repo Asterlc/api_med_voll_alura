@@ -16,35 +16,35 @@ import java.util.stream.Stream;
 
 public class MedicoController {
     @Autowired
-    private MedicoRepository repository;
+    private MedicoRepository medicoRepository;
 
     @PostMapping
     @Transactional
     public void cadastrar(@RequestBody @Valid MedicoDTO data) {
-        repository.save(new Medico(data));
+        medicoRepository.save(new Medico(data));
     }
 
     @GetMapping
     public Page<ListMedicosDTO> listagemAtivos(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-        return repository.findAllByAtivoTrue(paginacao).map(ListMedicosDTO::new);
+        return medicoRepository.findAllByAtivoTrue(paginacao).map(ListMedicosDTO::new);
     }
 
     @GetMapping("/{id}")
     public Stream listarPorId(@PathVariable Long id) {
-        return repository.findById(id).stream().map(ListMedicosDTO::new);
+        return medicoRepository.findById(id).stream().map(ListMedicosDTO::new);
     }
 
     @PutMapping("/{id}")
     @Transactional
     public void atualizar(@RequestBody @Valid AtualizarMedicoDTO data, @PathVariable Long id) {
-        var medico = repository.getReferenceById(id);
+        var medico = medicoRepository.getReferenceById(id);
         medico.atualizarInformacoes(data);
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id) {
-        var medico = repository.getReferenceById(id);
+        var medico = medicoRepository.getReferenceById(id);
         medico.excluir();
     }
 }
