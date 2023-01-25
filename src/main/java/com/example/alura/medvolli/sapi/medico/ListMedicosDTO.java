@@ -1,7 +1,14 @@
 package com.example.alura.medvolli.sapi.medico;
 
-public record ListMedicosDTO(String nome, String crm , String email, EspecialidadeEnum especialidade) {
+public record ListMedicosDTO(Long id, String nome, String crm, String email, String telefone, EspecialidadeEnum especialidade) {
     public ListMedicosDTO(Medico medico) {
-        this(medico.getNome(), medico.getCrm(), medico.getEmail(), medico.getEspecialidade());
+        this(
+                medico.getId(),
+                medico.getNome(),
+                medico.getCrm(),
+                medico.getEmail(),
+                medico.getTelefone(),
+                medico.getEspecialidade()
+        );
     }
 }

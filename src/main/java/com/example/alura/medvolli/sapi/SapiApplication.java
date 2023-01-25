@@ -9,8 +9,8 @@ import java.util.Collections;
 @SpringBootApplication
 public class SapiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SapiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SapiApplication.class, args);
+    }
 
 }
