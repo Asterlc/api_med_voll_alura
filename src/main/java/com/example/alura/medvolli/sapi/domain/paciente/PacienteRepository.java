@@ -1,4 +1,4 @@
-package com.example.alura.medvolli.sapi.paciente;
+package com.example.alura.medvolli.sapi.domain.paciente;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

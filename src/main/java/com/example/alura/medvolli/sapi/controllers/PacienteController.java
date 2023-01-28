@@ -1,14 +1,10 @@
 package com.example.alura.medvolli.sapi.controllers;
 
-import com.example.alura.medvolli.sapi.medico.AtualizarMedicoDTO;
-import com.example.alura.medvolli.sapi.medico.ListMedicosDTO;
-import com.example.alura.medvolli.sapi.medico.Medico;
-import com.example.alura.medvolli.sapi.medico.MedicoDTO;
-import com.example.alura.medvolli.sapi.paciente.AtualizarPacienteDTO;
-import com.example.alura.medvolli.sapi.paciente.ListPacientesDTO;
-import com.example.alura.medvolli.sapi.paciente.Paciente;
-import com.example.alura.medvolli.sapi.paciente.PacienteDTO;
-import com.example.alura.medvolli.sapi.paciente.PacienteRepository;
+import com.example.alura.medvolli.sapi.domain.paciente.AtualizarPacienteDTO;
+import com.example.alura.medvolli.sapi.domain.paciente.ListPacientesDTO;
+import com.example.alura.medvolli.sapi.domain.paciente.Paciente;
+import com.example.alura.medvolli.sapi.domain.paciente.PacienteDTO;
+import com.example.alura.medvolli.sapi.domain.paciente.PacienteRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

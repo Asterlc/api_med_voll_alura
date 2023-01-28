@@ -1,4 +1,4 @@
-package com.example.alura.medvolli.sapi.endereco;
+package com.example.alura.medvolli.sapi.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

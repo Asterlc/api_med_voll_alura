@@ -1,28 +1,23 @@
-package com.example.alura.medvolli.sapi.medico;
+package com.example.alura.medvolli.sapi.domain.paciente;
 
-import com.example.alura.medvolli.sapi.endereco.EnderecoDTO;
+import com.example.alura.medvolli.sapi.domain.endereco.EnderecoDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record MedicoDTO(
+public record PacienteDTO(
         @NotBlank
         String nome,
         @NotBlank
         @Email
         String email,
-        @NotBlank
-        @Pattern(regexp = "\\d{8,9}")
-        String telefone,
-        @NotBlank
-        @Pattern(regexp = "\\d{4,6}")
-        String crm,
-
-        @NotNull
-        EspecialidadeEnum especialidade,
         @NotNull
         @Valid
-        EnderecoDTO endereco) {
+        EnderecoDTO endereco,
+        @NotBlank
+        @Pattern(regexp = "\\d{8,9}")
+        String telefone) {
+
 }

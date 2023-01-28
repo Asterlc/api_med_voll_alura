@@ -1,6 +1,6 @@
-package com.example.alura.medvolli.sapi.medico;
+package com.example.alura.medvolli.sapi.domain.medico;
 
-import com.example.alura.medvolli.sapi.endereco.Endereco;
+import com.example.alura.medvolli.sapi.domain.endereco.Endereco;
 
 public record MedicoDetailDTO(Long id, String nome, String email, String crm, String telefone,
                               EspecialidadeEnum especialidade, Endereco endereco) {

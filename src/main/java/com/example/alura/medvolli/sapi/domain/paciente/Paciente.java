@@ -1,7 +1,6 @@
-package com.example.alura.medvolli.sapi.paciente;
+package com.example.alura.medvolli.sapi.domain.paciente;
 
-import com.example.alura.medvolli.sapi.endereco.Endereco;
-import com.example.alura.medvolli.sapi.medico.AtualizarMedicoDTO;
+import com.example.alura.medvolli.sapi.domain.endereco.Endereco;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

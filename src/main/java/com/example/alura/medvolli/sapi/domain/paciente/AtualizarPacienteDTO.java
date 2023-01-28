@@ -1,6 +1,6 @@
-package com.example.alura.medvolli.sapi.paciente;
+package com.example.alura.medvolli.sapi.domain.paciente;
 
-import com.example.alura.medvolli.sapi.endereco.EnderecoDTO;
+import com.example.alura.medvolli.sapi.domain.endereco.EnderecoDTO;
 
 public record AtualizarPacienteDTO(
         String nome,

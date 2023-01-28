@@ -1,4 +1,4 @@
-package com.example.alura.medvolli.sapi.medico;
+package com.example.alura.medvolli.sapi.domain.medico;
 
 public record ListMedicosDTO(Long id, String nome, String crm, String email, String telefone, EspecialidadeEnum especialidade) {
     public ListMedicosDTO(Medico medico) {

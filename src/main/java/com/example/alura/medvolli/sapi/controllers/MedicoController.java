@@ -1,6 +1,11 @@
 package com.example.alura.medvolli.sapi.controllers;
 
-import com.example.alura.medvolli.sapi.medico.*;
+import com.example.alura.medvolli.sapi.domain.medico.AtualizarMedicoDTO;
+import com.example.alura.medvolli.sapi.domain.medico.ListMedicosDTO;
+import com.example.alura.medvolli.sapi.domain.medico.Medico;
+import com.example.alura.medvolli.sapi.domain.medico.MedicoDTO;
+import com.example.alura.medvolli.sapi.domain.medico.MedicoDetailDTO;
+import com.example.alura.medvolli.sapi.domain.medico.MedicoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +13,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
@@ -33,7 +45,7 @@ public class MedicoController {
     }
 
     @GetMapping("detail")
-    public ResponseEntity<Page<MedicoDetailDTO>> listagemAtivosDetalhado(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+    public ResponseEntity<Page<MedicoDetailDTO>> detalhar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
         var medicoListDetail = medicoRepository.findAllByAtivoTrue(paginacao).map(MedicoDetailDTO::new);
         return ResponseEntity.ok(medicoListDetail);
     }
