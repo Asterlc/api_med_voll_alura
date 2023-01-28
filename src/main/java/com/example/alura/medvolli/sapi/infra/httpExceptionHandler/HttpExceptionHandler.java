@@ -1,8 +1,8 @@
-package com.example.alura.medvolli.sapi.infra;
+package com.example.alura.medvolli.sapi.infra.httpExceptionHandler;
 
-import com.example.alura.medvolli.sapi.infra.dto.ConstraintHandlerDTO;
-import com.example.alura.medvolli.sapi.infra.dto.HandlerNotValidExceptionDTO;
-import com.example.alura.medvolli.sapi.infra.dto.NotReadableExceptionDTO;
+import com.example.alura.medvolli.sapi.infra.httpExceptionHandler.dto.ConstraintExceptionDTO;
+import com.example.alura.medvolli.sapi.infra.httpExceptionHandler.dto.NotValidExceptionDTO;
+import com.example.alura.medvolli.sapi.infra.httpExceptionHandler.dto.NotReadableExceptionDTO;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -22,7 +22,7 @@ public class HttpExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity handlerNotValid(MethodArgumentNotValidException ex) {
         var errors = ex.getFieldErrors();
-        return ResponseEntity.badRequest().body(errors.stream().map(HandlerNotValidExceptionDTO::new).toList());
+        return ResponseEntity.badRequest().body(errors.stream().map(NotValidExceptionDTO::new).toList());
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
@@ -32,7 +32,7 @@ public class HttpExceptionHandler {
 
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
     public ResponseEntity handlerConstraint(SQLIntegrityConstraintViolationException ex){
-        return ResponseEntity.badRequest().body(new ConstraintHandlerDTO(ex.getMessage(), ex.getErrorCode()));
+        return ResponseEntity.badRequest().body(new ConstraintExceptionDTO(ex.getMessage(), ex.getErrorCode()));
     }
 
 }

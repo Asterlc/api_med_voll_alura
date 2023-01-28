@@ -3,7 +3,7 @@ package com.example.alura.medvolli.sapi.domain.medico;
 import com.example.alura.medvolli.sapi.domain.endereco.Endereco;
 
 public record MedicoDetailDTO(Long id, String nome, String email, String crm, String telefone,
-                              EspecialidadeEnum especialidade, Endereco endereco) {
+                              EspecialidadeEnum especialidade, Endereco endereco, Boolean ativo) {
     public MedicoDetailDTO(Medico medico) {
         this(
                 medico.getId(),
@@ -12,7 +12,8 @@ public record MedicoDetailDTO(Long id, String nome, String email, String crm, St
                 medico.getCrm(),
                 medico.getTelefone(),
                 medico.getEspecialidade(),
-                medico.getEndereco()
+                medico.getEndereco(),
+                medico.getAtivo()
         );
     }
 }
